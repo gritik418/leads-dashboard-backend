@@ -14,6 +14,15 @@ export const getDashboardAnalytics = async (req: Request, res: Response) => {
         Lead.countDocuments({ status: "Converted" }),
       ]);
 
+    const leadsByStage = await Lead.aggregate([
+      {
+        $group: {
+          _id: "$stage",
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+
     return res.status(200).json({
       success: true,
       message: "Dashboard analytics retrieved successfully!",
@@ -22,6 +31,7 @@ export const getDashboardAnalytics = async (req: Request, res: Response) => {
         newLeads,
         qualifiedLeads,
         convertedLeads,
+        leadsByStage,
       },
     });
   } catch (error) {
