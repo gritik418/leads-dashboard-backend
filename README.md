@@ -12,7 +12,12 @@ cd leads-dashboard-backend
 npm install
 ```
 
-# 3️⃣ Create .env file
+# 3️⃣ Run build command
+```
+npm run build
+```
+
+# 4️⃣ Create .env file
 ```
 MONGO_URI=<your-mongodb-uri>
 JWT_SECRET=<your-jwt-secret>
@@ -20,14 +25,24 @@ PORT=5000
 CLIENT_URL=<frontend-url>
 ```
 
-# 4️⃣ Start development server
+# 5️⃣ Start development server
 ```
 npm run dev
 ```
 
-# 5️⃣ Start production server
+# 6️⃣ Start production server
 ```
 npm run start
+```
+
+# 🗂 Seed Sample Leads
+
+You can populate the database with sample leads using the provided seed script. This is useful for development and testing.
+
+### Run the seed script
+
+```bash
+npm run seed:leads
 ```
 
 # 📌 Stack & Tools
