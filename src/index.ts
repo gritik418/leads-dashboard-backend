@@ -15,8 +15,11 @@ connectToDB();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_URL,
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+    preflightContinue: false,
+    allowedHeaders: ["Authorization", "Content-Type", "Set-Cookie"],
   })
 );
 app.use(express.json());
